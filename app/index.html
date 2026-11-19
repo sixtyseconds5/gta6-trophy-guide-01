@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Legend — GTA VI Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: a cited guide for every trophy, a roadmap to the platinum, and a spoiler-safe checklist.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23f2a33c'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' font-family='sans-serif' font-weight='bold' fill='%230d1b26'%3ELL%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="masthead">
+  <div class="masthead-title">
+    <p class="kicker">Grand Theft Auto VI · PlayStation 5 · Launch-day guide</p>
+    <h1>Leonida Legend</h1>
+    <p class="subtitle">Every one of the 55 trophies — a cited guide, a roadmap to the platinum, and a tracker that keeps your progress on this device. All single-player; no online trophies. Works fully offline.</p>
+  </div>
+  <div class="progress-box" id="progressBox" aria-live="polite">
+    <p class="progress-line"><strong id="progressCount">0 of 55 earned</strong> <span id="progressPct">0%</span></p>
+    <div class="bar" role="progressbar" aria-label="Trophies earned" aria-valuemin="0" aria-valuemax="55" aria-valuenow="0" id="progressBar"><span id="progressFill"></span></div>
+    <p class="grade-counts" id="gradeCounts"></p>
+    <p class="missable-line" id="missableLine"></p>
+  </div>
+</header>
+
+<nav class="views" aria-label="Views">
+  <button type="button" id="tabChecklist" class="view-tab active" aria-pressed="true">Checklist</button>
+  <button type="button" id="tabRoadmap" class="view-tab" aria-pressed="false">Roadmap to the Platinum</button>
+</nav>
+
+<section class="controls" aria-label="Filters and tools">
+  <label class="control search-control">Search <input id="search" type="search" placeholder="Trophy name or word from its description…" autocomplete="off"></label>
+  <label class="control">Kind
+    <select id="kind">
+      <option value="all">All kinds</option>
+      <option value="story">Story</option>
+      <option value="missable">Missable</option>
+      <option value="collectible">Collectibles</option>
+      <option value="activity">Activities</option>
+      <option value="online">Online</option>
+    </select>
+  </label>
+  <label class="control">Grade
+    <select id="grade">
+      <option value="all">All grades</option>
+      <option value="platinum">Platinum</option>
+      <option value="gold">Gold</option>
+      <option value="silver">Silver</option>
+      <option value="bronze">Bronze</option>
+    </select>
+  </label>
+  <label class="control">Show
+    <select id="earnedFilter">
+      <option value="all">Earned + unearned</option>
+      <option value="unearned">Unearned only</option>
+      <option value="earned">Earned only</option>
+    </select>
+  </label>
+  <label class="control spoiler-control"><input id="spoiler" type="checkbox"> Spoiler-safe: hide hidden trophies until earned</label>
+  <span class="spacer"></span>
+  <button id="export" type="button">Export progress</button>
+  <label class="import">Import progress <input id="import" type="file" accept="application/json,.json"></label>
+</section>
+
+<main>
+  <section id="checklistView" aria-label="Trophy checklist">
+    <div class="layout">
+      <div class="list-col">
+        <p class="result-line" id="resultLine"></p>
+        <ul class="cards" id="cards"></ul>
+        <p class="empty" id="emptyNote" hidden>No trophies match these filters. Clear the search or widen the filters.</p>
+      </div>
+      <aside class="detail-col" id="detail" aria-label="Trophy guide"></aside>
+    </div>
+  </section>
+
+  <section id="roadmapView" aria-label="Roadmap to the platinum" hidden>
+    <div class="roadmap-intro">
+      <h2>Roadmap to the Platinum</h2>
+      <p><strong>55 trophies: 1 Platinum, 2 Gold, 6 Silver, 46 Bronze. 28 are hidden on PlayStation until earned. None are online.</strong> Early estimates put the full list at roughly 200 hours: 60–80 hours of story, about 100 hours of checklist work, and about 10 hours of cleanup. Work the stages in order and the Platinum follows.</p>
+      <ul class="rules">
+        <li><strong>Keep cheats off.</strong> Two sources report that using cheats disables trophies and saving — the only fix mentioned is a clean save.</li>
+        <li><strong>Keep a manual save at the start of every chapter and one before the final mission.</strong> One source reports there is no mission replay, so a save is your only way back to a story moment.</li>
+        <li><strong>Do the Chapter 1 meditation.</strong> Positive Mental Attitude is the one possibly missable trophy: Lucia's balcony meditation in Chapter 1 is reported to disappear when the chapter ends.</li>
+        <li><strong>Start stranger chains as soon as they appear.</strong> One source reports their windows are tied to story progress.</li>
+      </ul>
+      <p class="roadmap-source">Roadmap built from the official trophy descriptions. Counts and warnings cite EGamers.io's trophy list, drawing on GTABase, PowerPyx, TechWiser and Press-Start. See each trophy's Sources for the detail.</p>
+    </div>
+    <div id="stages"></div>
+  </section>
+</main>
+
+<footer>
+  <p><strong>How this guide was made.</strong> Official trophy names, descriptions and grades are as PlayStation publishes them, via Exophase and PSNProfiles. Every guide is written for this entry, in the author's own words, from the official description plus the cited sources — never copied from another guide. GTA VI releases 19 November 2026, so where the description is the only source the guide says so and flags what is unconfirmed. Check a trophy in-game before trusting any single-source claim.</p>
+  <p><strong>Sources.</strong> PlayStation trophy list via Exophase and PSNProfiles; EGamers.io — GTA 6 Trophy List: All 55 Trophies (<span class="src-url">egamers.io/gta-6-trophy-list-all-55-trophies-and-achievements-plus-the-hardest-ones/</span>); Output Lag — GTA 6 Trophy List (<span class="src-url">outputlag.com/guides/gta-6-trophy-list/</span>). Links open only if you follow them; this page fetches nothing but its own data file.</p>
+  <p class="fineprint">An unofficial fan guide. Not affiliated with Rockstar Games, Sony or PlayStation. No Rockstar logo, artwork, box art or game screenshots are used anywhere in this guide. Your progress is stored only in this browser (localStorage) and in the file you export.</p>
+</footer>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
